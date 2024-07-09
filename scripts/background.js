@@ -47,7 +47,7 @@ chrome.tabs.onRemoved.addListener((tabId) => {//listen for tab closing
     chrome.storage.local.get('tabId', (result) => {//get tabId that we stored
         if (result.tabId === tabId) {//if the tabId closed matches our stored one we proceed
             chrome.storage.local.remove(['apiData', 'tabId'], () => {//remove stored data and re-set our default popup html file
-                chrome.action.setPopup({popup: "default_popup.html"});
+
             });
         }
     });
