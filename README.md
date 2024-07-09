@@ -1,4 +1,4 @@
-# AI-STOCK---Chrome-Extension
+# AI-STOCK - Chrome-Extension
 AI STOCK is a Chrome extension designed to predict the movement of stocks. It detects the stock ticker on Yahoo Finance pages, makes an API call to a server, and uses a machine learning model to predict the stock's future movement. The extension displays these predictions, indicating whether to buy, sell, or hold the stock, helping users make informed investment decisions.
 
 ## Features
