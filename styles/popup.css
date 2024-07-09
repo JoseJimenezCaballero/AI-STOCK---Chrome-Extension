@@ -1,0 +1,326 @@
+.body-class{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 350px;
+    height: 500px;
+    font-family: 'DM Sans', sans-serif;
+    background-image: url("/static/images/Designer.jpeg");
+    background-size: initial;
+    color: white;
+    transition-duration: .66s !important;
+    background-repeat: no-repeat;
+    background-position: 52% 17%;
+
+
+}
+
+.bodyAbout{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 350px;
+    height: 500px;
+    font-family: 'DM Sans', sans-serif;
+    background-image: url("/static/images/Designer.jpeg");
+    background-size: initial;
+    color: white;
+    transition-duration: .7s !important;
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+
+}
+
+.bodyResults{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    width: 350px;
+    height: 500px;
+    font-family: 'DM Sans', sans-serif;
+    background-image: url("/static/images/Designer.jpeg");
+    background-size: initial;
+    color: white;
+    transition-duration: .66s !important;
+    background-repeat: no-repeat;
+    background-position: 100% 8%;
+
+}
+
+.btnStyle{
+    margin-top: 39px; 
+    margin-left: 54px; 
+    width: 220px; 
+    border-radius: 7px; 
+    font-size: 15px; 
+    height: 42px; 
+    letter-spacing: 1px;
+    background-color: rgb(225, 222, 45);
+    box-shadow: rgba(182, 180, 54, 0.849) 0px 7px 29px 0px !important;
+    transition: all 0.7s !important;
+    border: ridge;
+    border-color: rgb(223, 221, 83);
+    border-width: 1px!important;
+}
+
+.btnStyleUp{/*for the about button moving upwards*/
+    transform: translateY(-390px) !important;
+    width: 90px !important;
+    margin-left: 118px !important;
+    font-size: 20px  !important;
+}
+
+.btnStyle:hover{
+    background-color: rgb(228, 225, 50);
+    box-shadow: rgba(241, 239, 112, 0.795) 0px 6px 29px 0px !important;
+    
+}
+
+.btnStyle:active{
+    background-color: rgb(255, 254, 187) !important;
+    box-shadow: rgba(255, 252, 67, 0.795) 0px 6px 29px 0px !important;
+    
+    
+}
+
+.row{
+    transition: all 0.9s !important;
+}
+
+.rowPlacementUp{/*for the row in the home page that are lifted up*/
+    transform: translateY(-400px);
+}
+
+.rowPlacementLeft{/*for the row in the home page that are moved left when stock btn is clicked*/
+    transform: translateX(-400px);
+}
+
+.predictions{
+    font-size: 18px !important;
+}
+
+.imgSize {
+    width: 100%;
+    height: auto;
+    max-height: 110px;
+    object-fit: contain;
+    position: relative;
+    top: -23px;
+  }
+
+.imgDefault {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    padding-left: 10px;
+}
+
+.aboutContainer{
+    position: absolute;
+    transform: translateY(445px);
+    transition: transform 0.74s ease !important;
+    margin-right: 12px;
+    text-align: center;
+    background-color: rgba(56, 56, 49, 0.867);
+    border-radius: 50px;
+    height: 278px;
+    border: ridge;
+    border-color: rgb(89, 89, 77);
+    border-width: 1px!important;
+    margin-left: 1px;
+    
+}
+
+.aboutContainerUp{
+    transform: translateY(-320px);
+}
+
+.aboutContainerLeft{
+    transform: translateX(-320px);
+}
+
+/* Links underneath the about section with links to my socials*/
+.aboutLinks{
+    position: absolute;
+    transform: translateY(445px);
+    transition: transform 0.93s ease !important;
+}
+
+.aboutLinksUp{
+    transform: translateY(-10px);
+}
+
+/*Button which holds the stock logo at the home page*/
+.stockBtnStyle{
+    height: 96% !important; 
+    width: 29% !important; 
+    background-color: rgba(252, 247, 201, 0.685) !important; 
+    border-radius: 10px !important;
+    box-shadow: rgba(129, 54, 182, 0.849) -3px 7px 29px 0px !important;
+    transform: translateX(445px);
+    transition: all 0.7s !important;
+}
+
+.logoStyle{
+    max-width: 85%; 
+    height: 100%; 
+    object-fit: cover; 
+    max-height: inherit;
+}
+
+.stockBtnStyleSide{
+    transform: translateX(-10px);
+}
+
+.stockBtnStyle:hover{
+    background-color: rgba(253, 249, 209, 0.822) !important; 
+    box-shadow: rgba(255, 253, 157, 0.891) 0px 6px 29px 0px !important;
+    
+    
+}
+
+.stockBtnStyle:active{
+    background-color: rgb(250, 245, 227) !important;
+    box-shadow: rgba(241, 239, 112, 0.795) -9px 11px 35px 0px !important;
+    
+    
+}
+
+.stockBtnStyleSideLeft{
+    transform: translateX(-400px);
+    transition: all 0.67s !important;
+    color: black;
+}
+
+
+/*Classes for results page*/
+.logoContainer{
+    transition: all 0.71s !important;
+    width: 200px;
+    transform: translateY(-370px) translateX(500px);
+    position: absolute;
+}
+
+.logoContainerLeft{
+    transform: translateY(-385px) translateX(75px);
+}
+
+.backBtnStyle{
+    color: white;
+    font-size: 18px;
+    background-color: rgb(85, 85, 85) !important;
+    transform: translateY(-150px) translateX(-70px);
+    padding: 0px 5px 0px 5px;
+
+}
+
+
+.resultsContainer{
+    position: absolute;
+    transform: translateY(-230px) translateX(500px);
+    transition: transform 0.85s ease !important;
+    margin-right: 12px;
+    text-align: center;
+    height: 262px;
+    margin-left: 8px;
+    border-radius: 50px ;
+}
+
+.resultsContainerLeft{
+    transform: translateY(-240px) translateX(0px);
+}
+
+
+.styleResults{
+    margin-right: 12px;
+    text-align: center;
+    background-color: rgba(80, 80, 80, 0.842) !important;
+    border-radius: 50px;
+    height: 42px;
+    border: ridge;
+    border-color: rgb(115, 115, 114);
+    border-width: 1px!important;
+    margin-left: 8px;
+    font-size: 14px; 
+    padding-top: 10px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); 
+    white-space: nowrap;
+}
+
+.styleResultsBuy{
+    margin-right: 12px;
+    text-align: center;
+    background-color: rgba(107, 207, 14, 0.842) !important;
+    border-radius: 50px;
+    height: 42px;
+    border: ridge;
+    border-color: rgb(187, 255, 123);
+    border-width: 1px!important;
+    margin-left: 8px;
+    font-size: 14px; 
+    padding-top: 10px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); 
+    white-space: nowrap;
+}
+
+.styleResultsSell{
+    margin-right: 12px;
+    text-align: center;
+    background-color: rgba(207, 14, 14, 0.842) !important;
+    border-radius: 50px;
+    height: 42px;
+    border: ridge;
+    border-color: rgb(255, 77, 77);
+    border-width: 1px!important;
+    margin-left: 8px;
+    font-size: 14px; 
+    padding-top: 10px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); 
+    white-space: nowrap;
+}
+
+
+
+
+
+
+/*Following classes are for custom stock logos on btn*/
+.TSLAbtn{
+    box-shadow: rgba(182, 54, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.AMZNbtn{
+    box-shadow: rgba(54, 65, 182, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.GOOGLbtn{
+    box-shadow: rgba(152, 182, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.GOOGbtn{
+    box-shadow: rgba(152, 182, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.AAPLbtn{
+    box-shadow: rgba(97, 97, 97, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.AMDbtn{
+    box-shadow: rgba(137, 182, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.MSFTbtn{
+    box-shadow: rgba(54, 124, 182, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.NVDAbtn{
+    box-shadow: rgba(75, 182, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.SPOTbtn{
+    box-shadow: rgba(116, 182, 54, 0.849) -3px 7px 29px 0px !important;
+
+}

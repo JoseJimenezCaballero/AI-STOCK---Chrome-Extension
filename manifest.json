@@ -1,0 +1,24 @@
+{
+    "name": "Machine Learning Stock Prediction",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Use machine learning to predict stock price movement in yahoo finance!",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "icons": {
+        "128": "static/images/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://finance.yahoo.com/quote/*"],
+            "js": ["scripts/contentScript.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_title": "Machine Learning - Predict Stock Movement",
+        "default_popup": "popup.html"
+    }
+
+}
