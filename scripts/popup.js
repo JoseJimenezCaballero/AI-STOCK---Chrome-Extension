@@ -140,11 +140,13 @@ function displayData(data){
 
     let moreInfo = document.querySelector("#moreInfo");
 
+    //******Linear regression data******
+
     //monthly prediction
     let monthly = document.querySelector("#month");
-    if(data[0].month[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+    if(data[0].linear.month[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
 
-        if(data[0].month[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+        if(data[0].linear.month[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
             monthly.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
         }
         else{
@@ -157,9 +159,9 @@ function displayData(data){
 
     //weekly prediction
     let weekly = document.querySelector("#week");
-    if(data[0].week[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+    if(data[0].linear.week[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
 
-        if(data[0].week[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+        if(data[0].linear.week[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
             weekly.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
         }
         else{
@@ -172,9 +174,9 @@ function displayData(data){
 
     //daily prediction
     let daily = document.querySelector("#day");
-    if(data[0].day[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+    if(data[0].linear.day[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
 
-        if(data[0].day[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+        if(data[0].linear.day[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
             daily.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
         }
         else{
@@ -185,6 +187,8 @@ function displayData(data){
         daily.innerHTML = '<h5 class="styleResults">No Prediction</h5>';
     }
 
+    //******END Linear regression data******
+    
     moreInfo.setAttribute("href",`https://stock-prediction-dxym.onrender.com/final?linear=on&ticker=${data[1]}`);
 
 }
