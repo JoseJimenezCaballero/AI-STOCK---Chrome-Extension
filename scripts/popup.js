@@ -67,6 +67,9 @@ function addLogo(ticker,tagId) {
         imgTag.setAttribute("src", logoPath);
     };
 
+    imgTest.onerror = function(){//if it does not load it means we dont have the logo so add the default
+        imgTag.setAttribute("src", 'static/images/logos/yahoo.png');
+    }
 }
 
 
