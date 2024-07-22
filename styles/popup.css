@@ -353,3 +353,13 @@
     box-shadow: rgba(116, 182, 54, 0.849) -3px 7px 29px 0px !important;
 
 }
+
+.BTC-USDbtn{
+    box-shadow: rgba(182, 142, 54, 0.849) -3px 7px 29px 0px !important;
+
+}
+
+.ETH-USDbtn{
+    box-shadow: rgba(54, 131, 182, 0.849) -3px 7px 29px 0px !important;
+
+}
