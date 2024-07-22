@@ -16,7 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {//once the dom is loaded th
 
 //Event listener for both the stock btn and back btn that when clicked will toggle results
 document.querySelector('#stockBtn').addEventListener('click', toggleStockBtn);
-document.querySelector('#backBtn').addEventListener('click', toggleStockBtn);
+document.querySelector('#backBtn').addEventListener('click', RemoveToggleStockBtn);
+
+//event listener for "next model" btn which toggles between the models
+document.querySelector('#NextBtn').addEventListener('click', () => {
+    document.querySelector("#resultsContainer").classList.toggle("resultsContainerLeft");
+    document.querySelector("#LogContainer").classList.toggle("resultsContainerLeft");
+});
 
 
 
@@ -84,6 +90,9 @@ function toggleStockBtn(){
     let resultLogoRow = document.querySelector("#resultLogoRow");//row which contains the logo for the results page
     let companyNameTag = document.querySelector("#companyName");//tag where we enter the company name
     let resultsContainer = document.querySelector("#resultsContainer");
+    let NextBtn = document.querySelector("#NextBtn");
+
+
 
 
     //********************************The following are things for the stock button********************************
@@ -130,18 +139,91 @@ function toggleStockBtn(){
             }
         });
 
-        resultsContainer.classList.toggle("resultsContainerLeft")
+        resultsContainer.classList.toggle("resultsContainerLeft");
 
-
+        //toggle next model btn 
+        NextBtn.classList.toggle("nextModelBtnLeft");
     
     /*************************************************///***********************************************************/
 }
+
+//fucntion used to remove the classes when back button is clicked
+function RemoveToggleStockBtn(){
+    //********variable declarations***********/
+    let body = document.querySelector(".body-class");//selects body
+    let stockBtn = document.querySelector("#stockBtn");
+    let titleRow = document.querySelector("#titleRow");//selects title row
+    let subRow = document.querySelector("#subRow");//selects row underneath title row
+    let aboutContainer = document.querySelector("#about");//selects container that holds about text
+    let resultLogoRow = document.querySelector("#resultLogoRow");//row which contains the logo for the results page
+    let companyNameTag = document.querySelector("#companyName");//tag where we enter the company name
+    let resultsContainer = document.querySelector("#resultsContainer");
+    let NextBtn = document.querySelector("#NextBtn");
+    let logContainer = document.querySelector("#LogContainer");
+
+
+
+
+    //********************************The following are things for the stock button********************************
+
+        //toggle classes to move button
+        stockBtn.classList.remove('stockBtnStyleSideLeft');
+
+        //check if logo class is added and toggle it if so
+        chrome.storage.local.get('apiData', (result) => {//try to get apiData from local storage and execute call back function with result
+            if (result.apiData) { 
+                stockBtn.classList.toggle(`${result.apiData[1]}btn`);
+            }
+        });
+
+
+    /***************************************************///**********************************************************/
+
+
+
+    //*******************The following are things for the rest of the elements in the home screen to be moved or modified*****************
+
+        //toggle classes to move title and subtitle rows left
+        titleRow.classList.remove("rowPlacementLeft");
+        subRow.classList.remove("rowPlacementLeft");
+
+        //toggle class to move about button to the left
+        aboutContainer.classList.remove('aboutContainerLeft');
+
+        //toggle class for body background image
+        body.classList.remove("bodyResults");//toggle the classes for movement up
+
+    /**************************************************///***********************************************************/
+
+
+
+    //*******************The following are for the results page and its display*******************
+        resultLogoRow.classList.remove('logoContainerLeft');
+
+        chrome.storage.local.get('apiData', (result) => {
+            if (result.apiData) { 
+               companyNameTag.innerText = result.apiData[0].name;//add the stock company name to result page
+                addLogo(result.apiData[1],"#resultLogo");        
+                displayData(result.apiData)//we call the function displayData to display the results onto the appropiate container
+            }
+        });
+
+        resultsContainer.classList.remove("resultsContainerLeft");
+
+        NextBtn.classList.remove("nextModelBtnLeft");
+        logContainer.classList.remove("resultsContainerLeft");
+    
+    /*************************************************///***********************************************************/
+}
+
+
 
 
 //This function takes the data returned from the API call and displays it on the popup.html file
 function displayData(data){
 
     let moreInfo = document.querySelector("#moreInfo");
+    let moreInfoLog = document.querySelector("#moreInfoLog");//when Log is implemented this must be updated to correcto info
 
     //******Linear regression data******
 
@@ -191,6 +273,57 @@ function displayData(data){
     }
 
     //******END Linear regression data******
+
+
+
+     //******Logistic regression data******
+
+    //monthly prediction
+    let monthlyLog = document.querySelector("#monthLog");
+    if(data[0].logistic.month[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+
+        if(data[0].logistic.month[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+            monthlyLog.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
+        }
+        else{
+            monthlyLog.innerHTML = '<h5 class="styleResultsSell">Sell<i class="bi bi-arrow-down-short"></i></h5>';
+        }
+    }
+    else{
+        monthlyLog.innerHTML = '<h5 class="styleResults">No Prediction</h5>';
+    }
+
+    //weekly prediction
+    let weeklyLog = document.querySelector("#weekLog");
+    if(data[0].logistic.week[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+
+        if(data[0].logistic.week[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+            weeklyLog.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
+        }
+        else{
+            weeklyLog.innerHTML = '<h5 class="styleResultsSell">Sell<i class="bi bi-arrow-down-short"></i></h5>';
+        }
+    }
+    else{
+        weeklyLog.innerHTML = '<h5 class="styleResults">No Prediction</h5>';
+    }
+
+    //daily prediction
+    let dailyLog = document.querySelector("#dayLog");
+    if(data[0].logistic.day[0] === 1){//if the prediction did not underperform reality then display the prediciton, otherwise state could not predict
+
+        if(data[0].logistic.day[1] === 1){//if the prediciton is to buy then state Buy otherwise Sell
+            dailyLog.innerHTML = '<h5 class="styleResultsBuy">Buy<i class="bi bi-arrow-up-short"></i></h5>';
+        }
+        else{
+            dailyLog.innerHTML = '<h5 class="styleResultsSell">Sell<i class="bi bi-arrow-down-short"></i></h5>';
+        }
+    }
+    else{
+        dailyLog.innerHTML = '<h5 class="styleResults">No Prediction</h5>';
+    }
+
+    //******END Logistic regression data******
     
     moreInfo.setAttribute("href",`https://stock-prediction-dxym.onrender.com/final?linear=on&ticker=${data[1]}`);
 
